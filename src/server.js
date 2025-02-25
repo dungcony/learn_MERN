@@ -23,11 +23,3 @@ app.listen(port, hostname, () => {
 })
 
 
-// //simple query
-connection.query(
-    'select * from Users',
-    function (err, results, fields) {
-        console.log(">>> results >>>", results);
-        //console.log(">>>fields>>>", fields);
-    }
-);
