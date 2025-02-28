@@ -23,24 +23,31 @@ const getHIHI = (req, res) => {
     res.render('sample.ejs')
 }
 
-const postCreateUser = (req, res) => {
+const getCreatePage = (req, res) => {
+    res.render('create-user.ejs')
+}
+
+const postCreateUser = async (req, res) => {
     let { email, myname, myCity } = req.body
 
-    console.log(">> req.body", email, '\n', myname, '\n', myCity)
-
-    connection.query(
-        `insert into Users(email, name, city) 
+    let [results, fields] = await connection.query(
+        `insert into Users(email, name, city)
         values (?, ?, ?)`,
         [email, myname, myCity],
-        function (err, results) {
-            console.log(results)
-            res.send('create user success')
-        }
     )
+
+    //const [results, fields] = await connection.query('select * from Users u')
+
+    console.log(">>> results >>>", results);
+
+    res.send('hi')
+
 }
+
 
 module.exports = {
     getHomePage,
     getHIHI,
-    postCreateUser
+    postCreateUser,
+    getCreatePage
 }
