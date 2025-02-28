@@ -1,22 +1,12 @@
 const connection = require('../config/database')
+const { getAllUser } = require('../services/CRUD')
 
-const getHomePage = (req, res) => {
+const getHomePage = async (req, res) => {
 
-    return res.render('home.ejs')
+    return res.render('home.ejs', {
+        listUsers: await getAllUser()
+    })
 
-    // let users = []
-
-    // // //simple query
-    // connection.query(
-    //     'select * from Users',
-    //     function (err, results, fields) {
-    //         users = results;
-    //         console.log(">>> results >>>", results);
-    //         //console.log(">>>fields>>>", fields);
-    //         console.log(">>>check: ", users)
-    //         res.send(JSON.stringify(users))
-    //     }
-    // );
 }
 
 const getHIHI = (req, res) => {
@@ -25,6 +15,10 @@ const getHIHI = (req, res) => {
 
 const getCreatePage = (req, res) => {
     res.render('create-user.ejs')
+}
+
+const getUpdatePage = (req, res) => {
+    res.render('update.ejs')
 }
 
 const postCreateUser = async (req, res) => {
@@ -49,5 +43,6 @@ module.exports = {
     getHomePage,
     getHIHI,
     postCreateUser,
-    getCreatePage
+    getCreatePage,
+    getUpdatePage
 }
