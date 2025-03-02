@@ -1,5 +1,5 @@
 const express = require('express')
-const { getHomePage, getHIHI, postCreateUser, getCreatePage, getUpdatePage } = require('../Controllers/homeController')
+const { getHomePage, getHIHI, postCreateUser, getCreatePage, getUpdatePage, postUpdateUser } = require('../Controllers/homeController')
 const router = express.Router()
 
 //khai bao route
@@ -10,7 +10,7 @@ router.get('/update/:id', getUpdatePage)
 
 
 
-
+router.post('/update-user', postUpdateUser)
 router.post('/create-user', postCreateUser)
 
 module.exports = router

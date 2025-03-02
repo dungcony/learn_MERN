@@ -15,37 +15,36 @@
         <a href="#about">About</a>
     </div>
     <div class="table-container">
-        <%= JSON.stringify(listUsers) %>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>Name</th>
-                    <th>City</th>
-                    <th>Actions</th>
-                </tr>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
 
-                <% listUsers.forEach(function(users) { %>
-                    <tr>
-                        <td>
-                            <%= users.id %>
-                        </td>
-                        <td>
-                            <%= users.email %>
-                        </td>
-                        <td>
-                            <%= users.name %>
-                        </td>
-                        <td>
-                            <%= users.city %>
-                        </td>
-                        <td>
-                            <button> <a href="/update/<%= users.id %>">Edit</a></button>
-                            <button>Delete</button>
-                        </td>
-                    </tr>
-                    <%});%>
-            </table>
+            <% listUsers.forEach(function(users) { %>
+                <tr>
+                    <td>
+                        <%= users.id %>
+                    </td>
+                    <td>
+                        <%= users.email %>
+                    </td>
+                    <td>
+                        <%= users.name %>
+                    </td>
+                    <td>
+                        <%= users.city %>
+                    </td>
+                    <td>
+                        <button> <a href="/update/<%= users.id %>">Edit</a></button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+                <%});%>
+        </table>
     </div>
 </body>
 
