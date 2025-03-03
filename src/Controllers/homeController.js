@@ -1,5 +1,5 @@
 const connection = require('../config/database')
-const { getAllUser, getUserById } = require('../services/CRUD')
+const { getAllUser, getUserById, updateUserById } = require('../services/CRUD')
 
 const getHomePage = async (req, res) => {
 
@@ -43,19 +43,17 @@ const postCreateUser = async (req, res) => {
 
 const postUpdateUser = async (req, res) => {
 
-    let { email, myname, myCity, userID } = req.body
+    let { email, myname, myCity } = req.body
+    let userID = req.body.userId
 
-    // let [results, fields] = await connection.query(
-    //     `insert into Users(email, name, city)
-    //     values (?, ?, ?)`,
-    //     [email, myname, myCity],
-    // )
+    updateUserById(email, myname, myCity, userID)
 
-    //const [results, fields] = await connection.query('select * from Users u')
+    // //const [results, fields] = await connection.query('select * from Users u')
 
-    console.log(">>> results >>>", results);
+    console.log(" ", email, " ", myname, " ", myCity, " ", userID);
 
-    res.send('hehe')
+    // res.send('hehe')
+    res.redirect('/')
 
 }
 

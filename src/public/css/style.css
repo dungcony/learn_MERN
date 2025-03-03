@@ -67,3 +67,7 @@ tr:hover {
     padding: 10px;
     background-color: blue;
 }
+
+.d-none {
+    display: none;
+}
